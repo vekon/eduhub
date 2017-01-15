@@ -1,0 +1,19 @@
+.header {
+  font-size: 25px;
+  padding: 20px;
+}
+.left-nav .nav-item {
+  padding: 30px 10px;
+}
+
+.feature-container {
+  margin: 20px 0;
+}
+
+.stream-list {
+  margin: 20px 0; 
+}
+
+.stream-list .stream {
+  margin: 10px 0;  
+}

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Streams from '../components/streams.js';
+import Streams from '../components/Streams.js';
 import { fetchStreams, fetchStreamsSuccess, fetchStreamsFailure } from '../actions';
 
 function mapStateToProps(state){
@@ -22,9 +22,9 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-const VisibleStreams = connect(
+const StreamsContainer = connect(
   mapStateToProps, 
   mapDispatchToProps
 )(Streams);
 
-export default VisibleStreams;
+export default StreamsContainer;

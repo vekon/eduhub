@@ -1,16 +1,12 @@
 import React from 'react';
+import { Router, browserHistory, hashHistory } from 'react-router';
 import { render } from 'react-dom';
-import App from './app/app.js';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import eduHubReducers from './app/reducers';
-import promise from 'redux-promise';
-
-let middleware = applyMiddleware(promise)(createStore);
-let store = middleware(eduHubReducers);
+import routes from './app/routes.js';
+import store from './app/store/store.js';
 
 render(
-	<Provider store={store}>
-		<App/>
-	</Provider>
-	, document.getElementById('main'));
+  <Provider store={store}>
+    <Router history={browserHistory} routes={routes}/>
+  </Provider>
+  , document.getElementById('main'));

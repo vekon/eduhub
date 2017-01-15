@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 var Streams = React.createClass({
   componentWillMount : function() {
@@ -7,16 +8,20 @@ var Streams = React.createClass({
 
   render : function() {
     var streamList = this.props.streams.map(function(eachStream, index){
-      return <li key={index}>
-        <span>{eachStream.name}</span>
+      return <div className="stream" key={eachStream.stream_id}>
+        <Link to={"/stream/view/"+eachStream.stream_id}>{eachStream.name}</Link>
+        {" "}
         <span>{eachStream.description}</span>
-      </li>
+      </div>
     });
 
     return (
-      <ul>{streamList}</ul>
+      <div className="">
+        <Link to="/stream/new"><input type="button" value="Add Stream"/></Link>
+        <div className="stream-list">{streamList}</div>
+      </div>
     );
   }
-})
+});
 
 export default Streams;
