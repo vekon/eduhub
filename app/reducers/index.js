@@ -1,6 +1,8 @@
 let defaultState = {
   streams: [],
-  activeStream: null
+  activeStream: null,
+  academyLevels: [],
+  activeAcademyLevel: null
 }
 
 function visibleStreams(state = defaultState, action) {
@@ -28,6 +30,12 @@ function visibleStreams(state = defaultState, action) {
     
   } else if (action.type === 'DELETE_STREAM_SUCCESS') {
     
+  } else if (action.type === 'FETCH_ACADEMY_LEVELS') {
+    return state;
+  } else if (action.type === 'FETCH_ACADEMYLEVELS_SUCCESS') {
+    return { ...state, academyLevels: action.payload};
+  } else if (action.type === 'FETCH_ACADEMYLEVEL_SUCCESS') {
+    return { ...state, activeAcademyLevel: action.payload};
   }
   return state;
 }
